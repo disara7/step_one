@@ -1,15 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'firebase_auth_implementation/firebase_auth_services.dart';
 import 'home.dart';
 
 class LoginScreen extends StatelessWidget {
-  final FirebaseAuthService _authService = FirebaseAuthService();
-
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
-  LoginScreen({super.key});
+  LoginScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +22,22 @@ class LoginScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                _showLoginDialog(context);
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.teal,
-              ),
-              child: const Text('Log In'),
-            ),
+                onPressed: () {
+                  _showLoginDialog(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.teal,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                        10.0), // Set your desired border radius here
+                  ),
+                ),
+                child: const Text(
+                  'Log In',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                )),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
@@ -44,8 +45,15 @@ class LoginScreen extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.teal,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                      10.0), // Set your desired border radius here
+                ),
               ),
-              child: const Text('Sign Up'),
+              child: const Text('Sign Up',
+                  style: TextStyle(
+                    color: Colors.white,
+                  )),
             ),
           ],
         ),
@@ -92,19 +100,9 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () async {
-                User? user = await _authService.signInWithEmailAndPassword(
-                  email,
-                  password,
-                );
-
-                if (user != null) {
-                  Navigator.pop(context); // Close the login dialog
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => const HomePage()),
-                  );
-                }
+              onPressed: () {
+                // Implement your login logic here
+                Navigator.pop(context); // Close the login dialog
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.teal,
@@ -190,21 +188,30 @@ class LoginScreen extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                User? user = await _authService.signUpWithEmailAndPassword(
-                  email,
-                  password,
-                  name,
-                );
+                // // Implement your sign-up logic here
+                // User? user = await _authService.signUpWithEmailAndPassword(
+                //   email,
+                //   password,
+                //   name,
+                // );
 
-                if (user != null) {
-                  Navigator.pop(context); // Close the sign-up dialog
-                  _showSignUpSuccessDialog(context);
-                }
+                // if (user != null) {
+                //   Navigator.pop(context); // Close the sign-up dialog
+                //   _showSignUpSuccessDialog(context);
+
+                // Redirect to home.dart after successful sign-up
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.teal,
               ),
-              child: const Text('Sign Up'),
+              child: const Text('Sign Up',
+                  style: TextStyle(
+                    color: Colors.white,
+                  )),
             ),
           ],
         );
@@ -227,8 +234,15 @@ class LoginScreen extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.teal,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(
+                      10.0), // Set your desired border radius here
+                ),
               ),
-              child: const Text('OK'),
+              child: const Text('OK',
+                  style: TextStyle(
+                    color: Colors.white,
+                  )),
             ),
           ],
         );

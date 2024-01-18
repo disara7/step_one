@@ -188,17 +188,26 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildActionButton() {
     return Container(
-      margin: const EdgeInsets.only(left: 120, right: 120, bottom: 20, top: 10),
-      child: ElevatedButton(
-        onPressed: () {
-          // Add functionality for the button
-          print('Button Pressed');
-        },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.teal,
-        ),
-        child: const Text('Track My Path'),
-      ),
-    );
+        margin:
+            const EdgeInsets.only(left: 120, right: 120, bottom: 20, top: 10),
+        child: ElevatedButton(
+          onPressed: () {
+            // Add functionality for the button
+            print('Button Pressed');
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.teal,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                  10.0), // Set your desired border radius here
+            ),
+          ),
+          child: const Text(
+            'Track My Path',
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ));
   }
 }

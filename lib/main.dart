@@ -1,19 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:step_one/splash.dart';
 
-Future<void> main() async {
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  try {
-    await Firebase.initializeApp();
-  } catch (e) {
-    print('Error initializing Firebase: $e');
-  }
   runApp(const StepOne());
 }
 
 class StepOne extends StatelessWidget {
-  const StepOne({super.key});
+  const StepOne({Key? key});
 
   @override
   Widget build(BuildContext context) {
