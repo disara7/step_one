@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "471184477083",
+    "firebase_url": "https://step-one-26d04-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "step-one-26d04",
+    "storage_bucket": "step-one-26d04.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:471184477083:android:3edf3068448159d3102f3e",
+        "android_client_info": {
+          "package_name": "com.example.step_one"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANdfbQqMrYUH29FB1GjIeQOCtxTWY-BP8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
